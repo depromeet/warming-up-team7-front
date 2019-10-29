@@ -37,5 +37,8 @@
   },
   "eslintConfig": {
     "extends": "google"
+  },
+  "dependencies": {
+    "lodash.merge": "^4.6.2"
   }
 }
