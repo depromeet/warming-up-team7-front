@@ -1,7 +1,6 @@
 body {
     width: 100vw;
     height: 82.15vh;
-    background-color: gray;
     margin: 0;
     font-family: NotoSansCJKkr;
 }
@@ -28,7 +27,7 @@ body {
 .row {
     height: 100%;
     overflow-y: scroll;
-    background-color: #555555;
+    background-color: #f4f4f4;
     padding-left: 16px;
     padding-right: 16px;
 }
@@ -176,7 +175,7 @@ body {
     height: 61px;
     display: inline-flex;
     padding: 10px;
-    width: 100vw;
+    width: 355px;
 }
 
 .call-bot {
@@ -210,4 +209,145 @@ body {
     margin: auto 0;
     position: relative;
     right: 30px;
+}
+
+/* 햄버거 바 */
+.hamburger-bar {
+    width: 287px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+.top-of-hamburger {
+    width: 250px;
+    height: 42px;
+    padding: 15px 18px 12px 19px;
+    display: flex;
+}
+
+.mine-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: orange;
+}
+
+.mine-name {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.18px;
+    color: #d86b1f;
+    margin: auto 0;
+    margin-left: 14px;
+    margin-right: 33px;
+}
+
+.config {
+    font-size: 14px;
+    letter-spacing: -0.16px;
+    color: #333333;
+    margin: auto 0;
+    margin-right: 17px;
+}
+
+.close-bamburger {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt0NcsDQYLxFiDkt4BV8-3xclXxkYhvfACKmIKNz-seSSPnXLcXA&s);
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.number-chat-room {
+    height: 32px;
+    background-color: #f7f7f7;
+    display: flex;
+    padding-left: 26px;
+}
+
+.text-number-chat-room {
+    font-size: 14px;
+    letter-spacing: -0.16px;
+    color: #666666;
+    margin: auto 0;
+}
+
+.other-user {
+    height: 60px;
+    display: flex;
+    padding-left: 23px;
+}
+
+.other-user-icon {
+    background-color: orange;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin: auto 0;
+}
+
+.other-user-name {
+    margin: auto 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.18px;
+    color: #222222;
+    margin-left: 18px;
+    margin-right: 10px;
+}
+
+.other-user-time-and-area {
+    margin: auto 0;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: -0.16px;
+    color: #333333;
+}
+
+.hamburger-footer {
+    width: 100%;
+    height: 64px;
+    background-color: #dcab60;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+
+.share {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.text-share {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.18px;
+    text-align: center;
+    color: white;
+    margin: auto 0;
+    cursor: pointer;
+}
+
+.quit {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.text-quit {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.18px;
+    text-align: center;   
+    color: white;
+    margin: auto 0;
+    cursor: pointer;
 }
