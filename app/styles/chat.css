@@ -351,3 +351,39 @@ body {
     margin: auto 0;
     cursor: pointer;
 }
+
+/* 입장 문구 */
+.background-entrance-phrase {
+    width: 343px;
+    height: 56px;
+    border-radius: 13px;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.row-text {
+    margin: auto 0;
+}
+
+.first-row-text {
+    display: flex;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #909090;
+    justify-content: center;
+}
+
+.person {
+    color: #666666;
+}
+
+.second-row-text {
+    font-size: 12px;
+    letter-spacing: 0.43px;
+    text-align: center;
+    color: #909090;
+}
