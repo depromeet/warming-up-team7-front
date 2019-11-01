@@ -1,0 +1,213 @@
+body {
+    width: 100vw;
+    height: 82.15vh;
+    background-color: gray;
+    margin: 0;
+    font-family: NotoSansCJKkr;
+}
+
+.top-of-chatroom {
+    background-color: #dcab60;
+    height: 49px;
+    display: flex;
+}
+
+.name-of-chatroom {
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.18px;
+    text-align: center;
+    color: white;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.row {
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #555555;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.opponent-chat {
+    margin-bottom: 24px;
+}
+
+.oppent-chat-row {
+    display: flex;
+    margin-bottom: 6px;
+}
+
+.user-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-contents {
+    height: fit-content;
+}
+
+.user-name {
+    width: 84px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #333333;
+    margin-right: 8px;
+}
+
+.name-and-topic {
+    display: flex;
+}
+
+.topic {
+    font-size: 12px;
+    line-height: 1.75;
+    letter-spacing: 0.43px;
+    color: #666666;
+}
+
+.balloon-and-time {
+    display: flex;
+}
+
+.opponent-speech-balloon {
+    /* width: fit-content; */
+    height: fit-content;
+    width: 250px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.picture-and-headline {
+    display: flex;
+}
+
+.picture {
+    width: 88px;
+    height: 88px;
+    border-radius: 4px;
+    background-color: red;
+    margin-right: 12px;
+}
+
+.headline {
+    width: 135px;
+    height: 66px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.38;
+    letter-spacing: 0.92px;
+    color: #222222;
+}
+
+.headline-and-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-of-company-and-date {
+    width: 118px;
+    height: 18px;
+    font-size: 12px;
+    letter-spacing: 0.69px;
+    color: #999999;
+}
+
+.contents {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #333333;   
+    margin-top: 4px;
+}
+
+.time {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #999999;
+    align-self: flex-end;
+}
+
+.mine-chat-row {
+    display: flex;
+}
+
+.mine-chat {
+    height: fit-content;
+    margin-bottom: 24px;
+}
+
+.mine-speech-balloon {
+    width: 183px;
+    height: 40px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background-color: #f0ead6;
+    border-radius: 20px;
+    display: flex;
+}
+
+.text {
+    width: 159px;
+    height: 20px; 
+    font-size: 14px;
+    letter-spacing: -0.16px;
+    color: #333333;
+    margin: 0 auto;
+    align-self: center;
+}
+
+.time-and-balloon {
+    display: flex;
+    margin-bottom: 6px;
+    margin-left: auto;
+}
+
+/* 채팅 입력 */
+.input {
+    height: 61px;
+    display: inline-flex;
+    padding: 10px;
+    width: 100vw;
+}
+
+.call-bot {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt0NcsDQYLxFiDkt4BV8-3xclXxkYhvfACKmIKNz-seSSPnXLcXA&s);
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.text-input {
+    width: 311px;
+    height: 44px;
+    border-radius: 22px;
+    border: solid 1px #dedede;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    margin: auto 0;
+    resize: none;
+    position: relative;
+    left: 8px;
+}
+
+.send {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt0NcsDQYLxFiDkt4BV8-3xclXxkYhvfACKmIKNz-seSSPnXLcXA&s);
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin: auto 0;
+    position: relative;
+    right: 30px;
+}
