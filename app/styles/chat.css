@@ -1,6 +1,7 @@
 body {
-    width: 100vw;
-    height: 82.15vh;
+    max-width: 100vw;
+    /* height: 82.15vh; */
+    height: 100vh;
     margin: 0;
     font-family: NotoSansCJKkr;
 }
@@ -25,7 +26,7 @@ body {
 }
 
 .row {
-    height: 100%;
+    height: 81vh;
     overflow-y: scroll;
     background-color: #f4f4f4;
     padding-left: 16px;
@@ -162,6 +163,7 @@ body {
     color: #333333;
     margin: 0 auto;
     align-self: center;
+    text-align: center;
 }
 
 .time-and-balloon {
@@ -170,12 +172,46 @@ body {
     margin-left: auto;
 }
 
+.input-and-bot {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.bot-menus {
+    width: 100vw;
+    height: 80px;
+    background-color: #eeeeee;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.bot-menu {
+    width: 52px;
+    height: 52px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin: auto 0;
+    margin-left: 8px;
+    margin-right: 8px;
+    flex: 0 0 auto;
+}
+
+.text-menu {
+    text-align: center;
+    margin: auto 0;
+}
+
 /* 채팅 입력 */
 .input {
     height: 61px;
-    display: inline-flex;
+    display: flex;
     padding: 10px;
-    width: 355px;
+    width: 95%;
 }
 
 .call-bot {
@@ -188,7 +224,7 @@ body {
 }
 
 .text-input {
-    width: 311px;
+    width: 100%;
     height: 44px;
     border-radius: 22px;
     border: solid 1px #dedede;
@@ -354,7 +390,7 @@ body {
 
 /* 입장 문구 */
 .background-entrance-phrase {
-    width: 343px;
+    width: 100%;
     height: 56px;
     border-radius: 13px;
     background-color: #ebebeb;
