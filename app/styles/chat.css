@@ -8,7 +8,7 @@ body {
 
 .top-of-chatroom {
     background-color: #dcab60;
-    height: 49px;
+    height: 5.01vh;
     display: flex;
 }
 
@@ -25,8 +25,19 @@ body {
     margin: 0 auto;
 }
 
+.hamburger-open-btn {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    /* 버튼 받기 전까지 임시 */
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+}
+
 .row {
-    height: 81vh;
+    height: 88.4vh;
     overflow-y: scroll;
     background-color: #f4f4f4;
     padding-left: 16px;
@@ -40,6 +51,8 @@ body {
 .oppent-chat-row {
     display: flex;
     margin-bottom: 6px;
+    margin-top: 6px;
+    flex-wrap: nowrap;
 }
 
 .user-icon {
@@ -47,10 +60,12 @@ body {
     height: 36px;
     border-radius: 50%;
     background-color: white;
+    flex: 0 0 auto;
 }
 
 .user-contents {
     height: fit-content;
+    margin-left: 8px;
 }
 
 .user-name {
@@ -79,13 +94,13 @@ body {
 }
 
 .opponent-speech-balloon {
-    /* width: fit-content; */
+    width: fit-content;
     height: fit-content;
-    width: 250px;
+    max-width: 250px;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     background-color: white;
     border-radius: 20px;
-    padding: 10px;
+    padding: 8px;
 }
 
 .picture-and-headline {
@@ -135,6 +150,7 @@ body {
     letter-spacing: 0.5px;
     color: #999999;
     align-self: flex-end;
+    margin: 0 8px 0 8px;
 }
 
 .mine-chat-row {
@@ -208,24 +224,35 @@ body {
 
 /* 채팅 입력 */
 .input {
-    height: 61px;
+    height: 6.55vh;
     display: flex;
-    padding: 10px;
-    width: 95%;
+    flex-wrap: nowrap;
+    margin-left: 16.9px;
 }
 
 .call-bot {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt0NcsDQYLxFiDkt4BV8-3xclXxkYhvfACKmIKNz-seSSPnXLcXA&s);
-    background-size: cover;
-    width: 32px;
-    height: 32px;
+    background-color: black;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
     cursor: pointer;
     margin: auto 0;
+    flex: 0 0 auto;
+}
+
+.close-bot {
+    background-color: gray;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin: auto 0;
+    flex: 0 0 auto;
 }
 
 .text-input {
-    width: 100%;
-    height: 44px;
+    width: 82.93vw;
+    height: 4.5vh;
     border-radius: 22px;
     border: solid 1px #dedede;
     background-color: #f7f7f7;
@@ -234,17 +261,19 @@ body {
     resize: none;
     position: relative;
     left: 8px;
+    flex: 0 0 auto;
 }
 
 .send {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt0NcsDQYLxFiDkt4BV8-3xclXxkYhvfACKmIKNz-seSSPnXLcXA&s);
-    background-size: cover;
-    width: 32px;
-    height: 32px;
+    background-color: black;
+    border-radius: 50%;
+    width: 3.94vh;
+    height: 3.94vh;
     cursor: pointer;
     margin: auto 0;
     position: relative;
     right: 30px;
+    flex: 0 0 auto;
 }
 
 /* 햄버거 바 */
@@ -256,6 +285,7 @@ body {
     right: 0;
     z-index: 1;
     background-color: white;
+    display: none;
 }
 
 .top-of-hamburger {
