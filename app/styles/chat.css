@@ -26,13 +26,13 @@ body {
 }
 
 .hamburger-open-btn {
-    width: 18px;
-    height: 18px;
-    background-color: white;
-    /* 버튼 받기 전까지 임시 */
+    background-image: url(../images/hamburger@3x.png);
+    background-size: cover;
+    width: 4.8vw;
+    height: 4.8vw;
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 1.47vh;
+    right: 1.47vh;
     cursor: pointer;
 }
 
@@ -265,7 +265,7 @@ body {
 }
 
 .send {
-    background-color: black;
+    background-color: rgb(200, 200, 200);
     border-radius: 50%;
     width: 3.94vh;
     height: 3.94vh;
@@ -313,15 +313,17 @@ body {
 }
 
 .config {
-    font-size: 14px;
-    letter-spacing: -0.16px;
-    color: #333333;
+    background-image: url(../images/setting@3x.png);
+    background-size: cover;
+    width: 25px;
+    height: 25px;
     margin: auto 0;
     margin-right: 17px;
+    margin-left: 27px;
 }
 
 .close-bamburger {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt0NcsDQYLxFiDkt4BV8-3xclXxkYhvfACKmIKNz-seSSPnXLcXA&s);
+    background-image: url(../images/exit@3x.png);
     background-size: cover;
     width: 16px;
     height: 16px;
@@ -378,44 +380,24 @@ body {
 .hamburger-footer {
     width: 100%;
     height: 64px;
-    background-color: #dcab60;
+    background-color: #f7f7f7;
     position: absolute;
     bottom: 0;
     display: flex;
 }
 
 .share {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.text-share {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.18px;
-    text-align: center;
-    color: white;
-    margin: auto 0;
-    cursor: pointer;
+    background-image: url(../images/share@3x.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
 }
 
 .quit {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.text-quit {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.18px;
-    text-align: center;   
-    color: white;
-    margin: auto 0;
-    cursor: pointer;
+    background-image: url(../images/out@3x.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
 }
 
 /* 입장 문구 */

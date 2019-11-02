@@ -8,6 +8,7 @@ const handleHamburgerBar = () => {
     })
 }
 
+// 봇 메뉴 인터랙션
 const handleBotMenu = () => {
     $(".bot-menus").hide();
     $(".close-bot").hide();
@@ -23,7 +24,22 @@ const handleBotMenu = () => {
     })
 }
 
-$(document).ready(() => {
+// 채팅 입력 인터랙션
+const handleInputChatting = () => {
+    $(".text-input").keyup(() => {
+        const isEmptyInput = !$(".text-input").val().length;
+        if (isEmptyInput) {
+            $(".send").css("background-color", "#c8c8c8");
+        }
+        else {
+            $(".send").css("background-color", "#d86b1f");
+        }
+    })
+}
+
+// DOM 렌더링 완료된 후 실행
+$(() => {
     handleHamburgerBar();
     handleBotMenu();
+    handleInputChatting();
 });
