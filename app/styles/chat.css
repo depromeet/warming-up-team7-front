@@ -1,0 +1,437 @@
+body {
+    max-width: 100vw;
+    /* height: 82.15vh; */
+    height: 100vh;
+    margin: 0;
+    font-family: NotoSansCJKkr;
+}
+
+.top-of-chatroom {
+    background-color: #dcab60;
+    height: 5.01vh;
+    display: flex;
+}
+
+.name-of-chatroom {
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.18px;
+    text-align: center;
+    color: white;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.hamburger-open-btn {
+    background-image: url(../images/hamburger@3x.png);
+    background-size: cover;
+    width: 4.8vw;
+    height: 4.8vw;
+    position: absolute;
+    top: 1.47vh;
+    right: 1.47vh;
+    cursor: pointer;
+}
+
+.row {
+    height: 88.4vh;
+    overflow-y: scroll;
+    background-color: #f4f4f4;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.opponent-chat {
+    margin-bottom: 24px;
+}
+
+.oppent-chat-row {
+    display: flex;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    flex-wrap: nowrap;
+}
+
+.user-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: white;
+    flex: 0 0 auto;
+}
+
+.user-contents {
+    height: fit-content;
+    margin-left: 8px;
+}
+
+.user-name {
+    width: 84px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #333333;
+    margin-right: 8px;
+}
+
+.name-and-topic {
+    display: flex;
+}
+
+.topic {
+    font-size: 12px;
+    line-height: 1.75;
+    letter-spacing: 0.43px;
+    color: #666666;
+}
+
+.balloon-and-time {
+    display: flex;
+}
+
+.opponent-speech-balloon {
+    width: fit-content;
+    height: fit-content;
+    max-width: 250px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.picture-and-headline {
+    display: flex;
+}
+
+.picture {
+    width: 88px;
+    height: 88px;
+    border-radius: 4px;
+    background-color: red;
+    margin-right: 12px;
+}
+
+.headline {
+    width: 135px;
+    height: 66px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.38;
+    letter-spacing: 0.92px;
+    color: #222222;
+}
+
+.headline-and-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-of-company-and-date {
+    width: 118px;
+    height: 18px;
+    font-size: 12px;
+    letter-spacing: 0.69px;
+    color: #999999;
+}
+
+.contents {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #333333;   
+    margin-top: 4px;
+}
+
+.time {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #999999;
+    align-self: flex-end;
+    margin: 0 8px 0 8px;
+}
+
+.mine-chat-row {
+    display: flex;
+}
+
+.mine-chat {
+    height: fit-content;
+    margin-bottom: 24px;
+}
+
+.mine-speech-balloon {
+    width: 183px;
+    height: 40px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background-color: #f0ead6;
+    border-radius: 20px;
+    display: flex;
+}
+
+.text {
+    width: 159px;
+    height: 20px; 
+    font-size: 14px;
+    letter-spacing: -0.16px;
+    color: #333333;
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+}
+
+.time-and-balloon {
+    display: flex;
+    margin-bottom: 6px;
+    margin-left: auto;
+}
+
+.input-and-bot {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.bot-menus {
+    width: 100vw;
+    height: 80px;
+    background-color: #eeeeee;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.bot-menu {
+    width: 52px;
+    height: 52px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin: auto 0;
+    margin-left: 8px;
+    margin-right: 8px;
+    flex: 0 0 auto;
+}
+
+.text-menu {
+    text-align: center;
+    margin: auto 0;
+}
+
+/* 채팅 입력 */
+.input {
+    height: 6.55vh;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 16.9px;
+}
+
+.call-bot {
+    background-color: black;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin: auto 0;
+    flex: 0 0 auto;
+}
+
+.close-bot {
+    background-color: gray;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin: auto 0;
+    flex: 0 0 auto;
+}
+
+.text-input {
+    width: 82.93vw;
+    height: 4.5vh;
+    border-radius: 22px;
+    border: solid 1px #dedede;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    margin: auto 0;
+    resize: none;
+    position: relative;
+    left: 8px;
+    flex: 0 0 auto;
+}
+
+.send {
+    background-color: rgb(200, 200, 200);
+    border-radius: 50%;
+    width: 3.94vh;
+    height: 3.94vh;
+    cursor: pointer;
+    margin: auto 0;
+    position: relative;
+    right: 30px;
+    flex: 0 0 auto;
+}
+
+/* 햄버거 바 */
+.hamburger-bar {
+    width: 287px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: white;
+    display: none;
+}
+
+.top-of-hamburger {
+    width: 250px;
+    height: 42px;
+    padding: 15px 18px 12px 19px;
+    display: flex;
+}
+
+.mine-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: orange;
+}
+
+.mine-name {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.18px;
+    color: #d86b1f;
+    margin: auto 0;
+    margin-left: 14px;
+    margin-right: 33px;
+}
+
+.config {
+    background-image: url(../images/setting@3x.png);
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    margin: auto 0;
+    margin-right: 17px;
+    margin-left: 27px;
+}
+
+.close-bamburger {
+    background-image: url(../images/exit@3x.png);
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.number-chat-room {
+    height: 32px;
+    background-color: #f7f7f7;
+    display: flex;
+    padding-left: 26px;
+}
+
+.text-number-chat-room {
+    font-size: 14px;
+    letter-spacing: -0.16px;
+    color: #666666;
+    margin: auto 0;
+}
+
+.other-user {
+    height: 60px;
+    display: flex;
+    padding-left: 23px;
+}
+
+.other-user-icon {
+    background-color: orange;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin: auto 0;
+}
+
+.other-user-name {
+    margin: auto 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.18px;
+    color: #222222;
+    margin-left: 18px;
+    margin-right: 10px;
+}
+
+.other-user-time-and-area {
+    margin: auto 0;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: -0.16px;
+    color: #333333;
+}
+
+.hamburger-footer {
+    width: 100%;
+    height: 64px;
+    background-color: #f7f7f7;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+
+.share {
+    background-image: url(../images/share@3x.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+.quit {
+    background-image: url(../images/out@3x.png);
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+}
+
+/* 입장 문구 */
+.background-entrance-phrase {
+    width: 100%;
+    height: 56px;
+    border-radius: 13px;
+    background-color: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.row-text {
+    margin: auto 0;
+}
+
+.first-row-text {
+    display: flex;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #909090;
+    justify-content: center;
+}
+
+.person {
+    color: #666666;
+}
+
+.second-row-text {
+    font-size: 12px;
+    letter-spacing: 0.43px;
+    text-align: center;
+    color: #909090;
+}
