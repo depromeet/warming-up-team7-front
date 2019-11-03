@@ -187,9 +187,21 @@ html,body{
 
 .nation_box{
   outline-style: none;
+  position: absolute;
+  top:50px; left:30px;
 }
 
-
+.nation_title{
+  font-size: 28px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #333333;
+  position: absolute;
+  top:50px; left:30px;
+}
 /* .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
 }
