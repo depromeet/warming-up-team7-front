@@ -24,35 +24,44 @@ will be correctly compiled during `gulp serve` and `gulp`
   margin: 0;
   padding: 0;
 } */
-html {
-  margin: 0;
-}
+
 
 body {
   width: 100vw;
   height: 100vh;
+  
 }
 html,body{
-  font-family: 'NotoSansCJKkr';
+  margin: 0;
+  padding:0;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 500;
+  -webkit-text-size-adjust: none;
+
 }
-.title {
-  height: 49.2px;
-  background-color:white;
+
+.titleName{
+  display: table;
+  width: 100%;
+  height: 50px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border-bottom: 1px solid #c9c9c9;
   text-align: center;
-}
-h2{
-  
   font-size: 18px;
-  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.19px;
   color: #191919;
- 
+  background-color:white;
+  
 }
-p{
+.title{
+  display: table-cell;
+  vertical-align: middle;
+}
+/*p{
   font-size: 18px;
   font-weight: 500;
   font-stretch: normal;
@@ -62,9 +71,48 @@ p{
   text-align: center;
   color: #333333;
   
+}*/
+.center{
+  margin: 0 auto;
+  text-align: center;
+   
 }
 
 .btn1{
+  width: 345px;
+  height: 60px;
+  border-radius: 24px;
+  border:none;
+  background-color: #ca8d4b;
+  color:white;
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  outline-style: none;
+  font-weight:500;
+  position: absolute;
+  bottom:105px; left:15px;
+ }
+.btn1_line{
+  width: 345px;
+  height: 60px;
+  border-radius: 24px;
+  background-color: white;
+  border: solid 1px #ca8d4b;
+  color:#ca8d4b;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  outline-style: none;
+  position: absolute;
+  bottom:30px; left:15px;
+}
+.btn2{
   width: 345px;
   height: 60px;
   border-radius: 24px;
@@ -78,36 +126,8 @@ p{
   line-height: normal;
   letter-spacing: -0.17px;
   outline-style: none;
- }
-.btn1_line{
-  width: 345px;
-  height: 60px;
-  border-radius: 24px;
-  background-color: white;
-  border: solid 1px #dcab60;
-  color:#dcab60;
-  font-size: 16px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.17px;
-  outline-style: none;
-}
-#btn2{
-  width: 345px;
-  height: 60px;
-  border-radius: 24px;
-  border:none;
-  background-color: #dcab60;
-  color:white;
-  font-size: 16px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.17px;
-  outline-style: none;
+  position: absolute;
+  bottom:100px; left:15px;
  }
 
  .btn3{
@@ -124,6 +144,8 @@ p{
   line-height: normal;
   letter-spacing: -0.17px;
   outline-style: none;
+  position: absolute;
+  bottom:110px; left:15px;
  }
  #btn4{
   width: 345px;
@@ -142,20 +164,27 @@ p{
   outline-style: none;
  }
 .underline{
-  width: 345px;
+  width: 280px;
   border: 0;
   outline: 0;
   /*background: transparent;*/
   background-position:top right; 
   background-repeat:no-repeat;
-  border-bottom: 1px solid black; 
+  border-bottom: 1px solid #c9c9c9; 
   /**margin: 0 0 0 50; /*상 우 하 좌*/ 
-  padding-left: 3%;
-  padding-bottom: 2%;
-  padding-top: 1%;
-  
+  padding-left: 10%;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  color:#999999;
   
 }
+
 .nation_box{
   outline-style: none;
 }
