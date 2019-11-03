@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="styles/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script src="scripts/signup.js"></script>
+        <!--<script src="https://cdnjs.cloudlare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>-->
+
+        <form method="POST" action="">
+            <p>채팅방 설정</p>
+
+            <input class="underline" type="text" id="chatName" onfocus="colorChange()" placeholder="채팅방 이름을 입력해주세요."><br>
+            <br>
+            
+          <input id="btn3" type="submit" value="채팅방 입장하기" onclick="chatEnter(); return false;"><br><br>        
+          <input id="btn4"  type="submit" value="링크복사하기" onclick="linkCopy(); return false;"> 
+           <!--data-clipboard-target="#targetText"-->     
+        </form>
+    </body>
+</html>
