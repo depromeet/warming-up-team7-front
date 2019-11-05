@@ -8,6 +8,34 @@ const handleHamburgerBar = () => {
   })
 }
 
+// 봇 호출하여 뉴스 표시
+const displayNewsByBot = (selectedId) => {
+  const url = `http://54.180.125.135/api/test/news?country=kr&category=${selectedId}`;
+  const getNews = axios.get(url);
+  getNews.then(res => {
+    const title = res.data.title;
+    const publishedAt = res.data.publishedAt;
+    const content = res.data.content;
+    const imageUrl = res.data.imageUrl;
+    const url = res.data.url;
+    const mineBotForm = `<div class="mine-speech-balloon">
+                          <div class="picture-and-headline">
+                            <div class="picture"></div>
+                            <div class="headline-and-date">
+                              <a href=${url} target="_blank" class="headline">${title}</a>
+                              <div class="name-of-company-and-date">${publishedAt}</div>
+                            </div>
+                          </div>
+                          <div class="contents">${content}</div>
+                        </div>`;
+    $(".row").append(mineBotForm);
+    $(".picture").last().css("background-image", `url(${imageUrl})`);
+    // 스크롤 맨 아래로 이동
+    $(".row").scrollTop($(".row")[0].scrollHeight);
+  })
+  .catch(err => console.log(err));
+}
+
 // 봇 메뉴 인터랙션
 const handleBotMenu = () => {
   const showBotMenu = () => {
@@ -43,6 +71,7 @@ const handleBotMenu = () => {
         "border": "solid 1px white"
       })
     }, 500);
+    displayNewsByBot(selectedId);
   })
 }
 
@@ -84,6 +113,8 @@ const addChatting = () => {
     // 입력창 초기화
     $(".text-input").val("");
     $(".send").css("background-color", "#c8c8c8");
+    // 스크롤 맨 아래로 이동
+    $(".row").scrollTop($(".row")[0].scrollHeight);
   })
 }
 
