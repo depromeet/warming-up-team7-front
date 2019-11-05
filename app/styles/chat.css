@@ -163,16 +163,18 @@ body {
 }
 
 .mine-speech-balloon {
-    width: 183px;
     height: 40px;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     background-color: #f0ead6;
     border-radius: 20px;
     display: flex;
+
 }
 
 .text {
-    width: 159px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: fit-content;
     height: 20px; 
     font-size: 14px;
     letter-spacing: -0.16px;
@@ -201,6 +203,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    color: #666666;
 }
 
 .bot-menu {
@@ -215,6 +218,7 @@ body {
     margin-left: 8px;
     margin-right: 8px;
     flex: 0 0 auto;
+    border: 1px solid white;
 }
 
 .text-menu {
@@ -274,6 +278,16 @@ body {
     position: relative;
     right: 30px;
     flex: 0 0 auto;
+}
+
+.send-symbol {
+    background-image: url(../images/send@3x.png);
+    background-size: cover;
+    left: 1vw;
+    position: relative;
+    top: 0.86vh;
+    width: 5.86vw;
+    height: 2.21vh;
 }
 
 /* 햄버거 바 */
@@ -391,6 +405,7 @@ body {
     background-size: cover;
     width: 20px;
     height: 20px;
+    margin-right: 18px;
 }
 
 .quit {
@@ -398,9 +413,18 @@ body {
     background-size: cover;
     width: 20px;
     height: 20px;
+    margin-right: 16px;
 }
 
-/* 입장 문구 */
+.share-and-quit {
+    display: flex;
+    margin: auto 0;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+/* 유저 입장 문구 */
+/* ~님이 입장하셨습니다. */
 .background-entrance-phrase {
     width: 100%;
     height: 56px;
