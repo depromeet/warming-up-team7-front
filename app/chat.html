@@ -6,6 +6,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="module" src="scripts/websocket.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="scripts/chat.js"></script>
     <link rel="stylesheet" href="styles/chat.css">
     <title></title>
@@ -32,9 +34,9 @@
                 <div class="picture-and-headline">
                   <div class="picture"></div>
                   <div class="headline-and-date">
-                    <div class="headline">[정치]방글라데시, 
+                    <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
                         지진재난 프로토콜
-                        완성…피해주민…</div>
+                        완성…피해주민…</a>
                     <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
                   </div>
                 </div>
@@ -56,9 +58,9 @@
                 <div class="picture-and-headline">
                   <div class="picture"></div>
                   <div class="headline-and-date">
-                    <div class="headline">[정치]방글라데시, 
+                    <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
                         지진재난 프로토콜
-                        완성…피해주민…</div>
+                        완성…피해주민…</a>
                     <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
                   </div>
                 </div>
@@ -87,6 +89,18 @@
             </div>
           </div>
         </div>
+        <div class="mine-speech-balloon">
+          <div class="picture-and-headline">
+            <div class="picture"></div>
+            <div class="headline-and-date">
+                <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
+                  지진재난 프로토콜
+                  완성…피해주민…</a>
+              <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
+            </div>
+          </div>
+          <div class="contents">최근 방글라데시에 큰 재난이 발생한 뒤 이로 인해 피해를 겪었던 국민들을 위한 재난 안내 대피 프로토콜이 발동되어…</div>
+        </div>
       </div>
       <!-- 상대 채팅 -->
       <div class="opponent-chat">
@@ -102,9 +116,9 @@
                 <div class="picture-and-headline">
                   <div class="picture"></div>
                   <div class="headline-and-date">
-                    <div class="headline">[정치]방글라데시, 
+                      <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
                         지진재난 프로토콜
-                        완성…피해주민…</div>
+                        완성…피해주민…</a>
                     <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
                   </div>
                 </div>
@@ -128,23 +142,17 @@
     </div>
     <div class="input-and-bot">
       <div class="bot-menus">
-        <div class="bot-menu">
-          <div class="text-menu">속보</div>
-        </div>
-        <div class="bot-menu">
-          <div class="text-menu">날씨</div>
-        </div>
-        <div class="bot-menu">
-          <div class="text-menu">정치</div>
-        </div>
-        <div class="bot-menu">
+        <div id="entertainment" class="bot-menu">
           <div class="text-menu">연애</div>
         </div>
-        <div class="bot-menu">
+        <div id="health" class="bot-menu">
+          <div class="text-menu">건강</div>
+        </div>
+        <div id="technology" class="bot-menu">
+          <div class="text-menu">기술</div>
+        </div>
+        <div id="sports" class="bot-menu">
           <div class="text-menu">스포츠</div>
-        </div>
-        <div class="bot-menu">
-          <div class="text-menu">경제</div>
         </div>
       </div>
       <!-- 채팅 입력 -->
@@ -152,7 +160,9 @@
         <div class="call-bot"></div>
         <div class="close-bot"></div>
         <textarea class="text-input"></textarea>
-        <div class="send"></div>
+        <div class="send">
+          <div class="send-symbol"></div>
+        </div>
       </div>
     </div>
     <!-- 햄버거 바 -->
@@ -184,8 +194,10 @@
         </div>
       </div>
       <div class="hamburger-footer">
-        <div class="share"></div>
-        <div class="quit"></div>
+        <div class="share-and-quit">
+          <div class="share"></div>
+          <div class="quit"></div>
+        </div>
       </div>
     </div>
   </body>
