@@ -4,16 +4,43 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="styles/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet" type="text/css">
+      
     </head>
     <body>
         <script src="scripts/signup.js"></script>
         <form method="POST" action="">
-            <p>프로필 선택</p>
-            <img src="">
-            <p>기러기 아빠 님</p>
-          
-       
-            <input class="btn2" type="submit" value="다음으로" onclick="chatName(); return false;">        
+                <div class="titleName_signup">
+                        <span class="title">프로필 선택</span>
+                </div>
+            <div class="center">
+                <div class="profileSelect" onclick="profileSelect(); return false;">
+                    <img src="/images/profile/1.png" id="select" width="105px" height="105px"
+                    style="position: relative; top: 40px;">
+                    <div class="profile_name">---- 님</div>
+                    <img src="/images/profile/1.png" id="1"width="80px" height="80px"
+                    style="position: relative; top: 77px;">
+                    <img src="/images/profile/2.png" id="2" width="80px" height="80px"
+                    style="position: relative; top: 77px;">
+                    <img src="/images/profile/3.png" id="3" width="80px" height="80px"
+                    style="position: relative; top: 77px;"><br>
+                    <img src="/images/profile/4.png" id="4" width="80px" height="80px"
+                    style="position: relative; top: 97px;">
+                    <img src="/images/profile/5.png" id="5" width="80px" height="80px"
+                    style="position: relative; top: 97px;">
+                    <img src="/images/profile/6.png" id="6" width="80px" height="80px"
+                    style="position: relative; top: 97px;"><br>
+                    <img src="/images/profile/8.png" id="8" width="80px" height="80px"
+                    style="position: relative; top: 117px;">
+                    <img src="/images/profile/9.png" id="9" width="80px" height="80px"
+                    style="position: relative; top: 117px;">
+                    <img src="/images/profile/12.png" id="12" width="80px" height="80px"
+                    style="position: relative; top: 117px;">
+                </div>  
+            <input class="btn2" type="submit" value="다음으로" onclick="chatName(); return false;"
+            style="position: relative; top: 147px;">        
+
+            </div>        
         </form>
     </body>
 </html>

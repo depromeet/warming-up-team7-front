@@ -55,6 +55,26 @@ html,body{
   letter-spacing: -0.19px;
   color: #191919;
   background-color:white;
+  position: absolute;
+  
+  
+}
+
+.titleName_signup{
+  display: table;
+  width: 100%;
+  height: 50px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border-bottom: 1px solid #c9c9c9;
+  text-align: center;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.19px;
+  color: #333333;
+  background-color:white;
   
 }
 .title{
@@ -91,10 +111,14 @@ html,body{
   line-height: normal;
   letter-spacing: -0.17px;
   outline-style: none;
-  font-weight:500;
-  position: absolute;
-  bottom:105px; left:15px;
- }
+  position: relative;
+  top:370px; 
+  margin-right:auto; margin-left:auto; left:0; right:0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  -webkit-text-size-adjust: none;
+}
+
 .btn1_line{
   width: 345px;
   height: 60px;
@@ -109,8 +133,12 @@ html,body{
   line-height: normal;
   letter-spacing: -0.17px;
   outline-style: none;
-  position: absolute;
-  bottom:30px; left:15px;
+  position: relative;
+  top:390px; 
+  margin-right:auto; margin-left:auto; left:0; right:0;
+  font-family: 'Noto Sans kr', sans-serif;
+  font-weight: 400;
+  -webkit-text-size-adjust: none;
 }
 .btn2{
   width: 345px;
@@ -120,22 +148,47 @@ html,body{
   background-color: #ca8d4b;
   color:white;
   font-size: 16px;
-  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.17px;
   outline-style: none;
+  font-weight:500;
   position: absolute;
-  bottom:100px; left:15px;
- }
+  top:500px; 
+  margin-right:auto; margin-left:auto; left:0; right:0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  -webkit-text-size-adjust: none;
+}
+
+.btn_enter{
+  width: 345px;
+  height: 60px;
+  border-radius: 24px;
+  border:none;
+  background-color: #ca8d4b;
+  color:white;
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  outline-style: none;
+  position: relative;
+  top:400px; 
+  margin-right:auto; margin-left:auto; left:0; right:0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight:400;
+  -webkit-text-size-adjust: none;
+}
 
  .btn3{
   width: 345px;
   height: 60px;
   border-radius: 24px;
   border:none;
-  background-color: #4a4a4a;
+  background-color: #424242;
   color:white;
   font-size: 16px;
   font-weight: 500;
@@ -145,24 +198,33 @@ html,body{
   letter-spacing: -0.17px;
   outline-style: none;
   position: absolute;
-  bottom:110px; left:15px;
- }
- #btn4{
+  top:450px; 
+  margin-right:auto; margin-left:auto; left:0; right:0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  -webkit-text-size-adjust: none;
+}
+ .btn4{
   width: 345px;
   height: 60px;
   border-radius: 24px;
   border:none;
   background-color: white;
-  border: solid 1px#424242;
-  color:#424242;
+  border: solid 1px#999999;
+  color:#999999;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.17px;
   outline-style: none;
- }
+  position: relative;
+  top:290px; 
+  margin-right:auto; margin-left:auto; left:0; right:0;
+  font-family: 'Noto Sans KR', sans-serif;
+  -webkit-text-size-adjust: none;
+}
 .underline{
   width: 280px;
   border: 0;
@@ -172,24 +234,48 @@ html,body{
   background-repeat:no-repeat;
   border-bottom: 1px solid #c9c9c9; 
   /**margin: 0 0 0 50; /*상 우 하 좌*/ 
-  padding-left: 10%;
-  padding-bottom: 5%;
+  padding-left: 9%;
+  padding-bottom: 3.5%;
   padding-top: 5%;
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  -webkit-text-size-adjust: none;
+}
+.underline::-webkit-input-placeholder { 
+  color: #999999; 
+  font-weight: 400;
+}
+
+.nation_box{
+  outline-style: none;
+  width: 300px;
+  height: 50px;
+  border: solid 1px #dddddd;
   font-size: 16px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.17px;
-  color:#999999;
-  
+  padding-left: 5%;
+  background-position:top right; 
+  background-repeat:no-repeat;
+  position: relative;
+  top:130px; left:30px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  -webkit-text-size-adjust: none;
 }
 
-.nation_box{
-  outline-style: none;
-  position: absolute;
-  top:50px; left:30px;
+.nation::-webkit-input-placeholder { 
+  color: #424242; 
 }
+
 
 .nation_title{
   font-size: 28px;
@@ -200,7 +286,113 @@ html,body{
   letter-spacing: -0.3px;
   color: #333333;
   position: absolute;
-  top:50px; left:30px;
+  top:80px; left:30px;
+}
+  
+.keepLogin{
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.15px;
+  color: #424242;
+  position: relative;
+  top:90px; left:85px; 
+}
+
+.invite_letter{
+  font-size: 26px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  text-align: center;
+  color: #333333;
+  position: relative;
+  top:70px;
+}
+
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 230px;
+  border: 1px solid #d8d8d8;
+  z-index: 1;
+  width: 316px;
+ 
+  -webkit-text-size-adjust: none;
+  position: relative;
+  top:130px; left:30px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  -webkit-text-size-adjust: none;
+}
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  color: #424242;
+}
+.dropdown-content a:hover 
+{background-color: #f7f7f7}
+
+.show 
+{display:block;
+  height:182px;
+overflow:scroll;}
+
+.pwError{
+  display: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.15px;
+  color: #d77161;
+  position: relative;
+  top: 210px;
+  left: 29px;
+  
+}
+.profile_name{
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.19px;
+  color: #333333;
+  position: relative;
+  top: 40px;
+  
+}
+.link_notice{
+  display: none;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  color: #424242;
+  position: relative;
+  top: 310px;
+  left: 30px;
+  
 }
 /* .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
