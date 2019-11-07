@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="module" src="scripts/websocket.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="scripts/chat.js"></script>
+    <link rel="stylesheet" href="styles/chat.css">
+    <title></title>
+  </head>
+  <body>
+    <!-- 채팅방 상단 -->
+    <div class="top-of-chatroom">
+      <div class="name-of-chatroom">채팅방 이름</div>
+      <div class="hamburger-open-btn"></div>
+    </div>
+    <!-- 채팅 내용 -->
+    <div class="row">
+      <!-- 상대 채팅 -->
+      <div class="opponent-chat">
+        <div class="oppent-chat-row">
+          <div class="user-icon"></div>
+          <div class="user-contents">
+            <div class="name-and-topic">
+              <div class="user-name">대화가 필요해</div>
+              <div class="topic">정치</div>
+            </div>
+            <div class="balloon-and-time">
+              <div class="opponent-speech-balloon">
+                <div class="picture-and-headline">
+                  <div class="picture"></div>
+                  <div class="headline-and-date">
+                    <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
+                        지진재난 프로토콜
+                        완성…피해주민…</a>
+                    <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
+                  </div>
+                </div>
+                <div class="contents">최근 방글라데시에 큰 재난이 발생한 뒤 이로 인해 피해를 겪었던 국민들을 위한 재난 안내 대피 프로토콜이 발동되어…</div>
+              </div>
+              <div class="time">23:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="oppent-chat-row">
+          <div class="user-icon"></div>
+          <div class="user-contents">
+            <!-- <div class="name-and-topic">
+              <div class="user-name">대화가 필요해</div>
+              <div class="topic">정치</div>
+            </div> -->
+            <div class="balloon-and-time">
+              <div class="opponent-speech-balloon">
+                <div class="picture-and-headline">
+                  <div class="picture"></div>
+                  <div class="headline-and-date">
+                    <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
+                        지진재난 프로토콜
+                        완성…피해주민…</a>
+                    <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
+                  </div>
+                </div>
+                <div class="contents">최근 방글라데시에 큰 재난이 발생한 뒤 이로 인해 피해를 겪었던 국민들을 위한 재난 안내 대피 프로토콜이 발동되어…</div>
+              </div>
+              <div class="time">23:02</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 내 채팅 -->
+      <div class="mine-chat">
+        <div class="mine-chat-row">
+          <div class="time-and-balloon">
+            <div class="time">23:02</div>
+            <div class="mine-speech-balloon">
+              <div class="text">안그래도 여기도 지진때문에</div>
+            </div>
+          </div>
+        </div>
+        <div class="mine-chat-row">
+          <div class="time-and-balloon">
+            <div class="time">23:02</div>
+            <div class="mine-speech-balloon">
+              <div class="text">안그래도 여기도 지진때문에</div>
+            </div>
+          </div>
+        </div>
+        <div class="mine-speech-balloon">
+          <div class="picture-and-headline">
+            <div class="picture"></div>
+            <div class="headline-and-date">
+                <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
+                  지진재난 프로토콜
+                  완성…피해주민…</a>
+              <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
+            </div>
+          </div>
+          <div class="contents">최근 방글라데시에 큰 재난이 발생한 뒤 이로 인해 피해를 겪었던 국민들을 위한 재난 안내 대피 프로토콜이 발동되어…</div>
+        </div>
+      </div>
+      <!-- 상대 채팅 -->
+      <div class="opponent-chat">
+        <div class="oppent-chat-row">
+          <div class="user-icon"></div>
+          <div class="user-contents">
+            <div class="name-and-topic">
+              <div class="user-name">대화가 필요해</div>
+              <div class="topic">정치</div>
+            </div>
+            <div class="balloon-and-time">
+              <div class="opponent-speech-balloon">
+                <div class="picture-and-headline">
+                  <div class="picture"></div>
+                  <div class="headline-and-date">
+                      <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
+                        지진재난 프로토콜
+                        완성…피해주민…</a>
+                    <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
+                  </div>
+                </div>
+                <div class="contents">최근 방글라데시에 큰 재난이 발생한 뒤 이로 인해 피해를 겪었던 국민들을 위한 재난 안내 대피 프로토콜이 발동되어…</div>
+              </div>
+              <div class="time">23:02</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 입장 문구 -->
+      <div class="background-entrance-phrase">
+        <div class="row-text">
+          <div class="first-row-text">
+            <div class="person">막내딸 지영이</div>
+            <div class="entry-phrase">님이 입장하셨습니다</div>
+          </div>
+          <div class="second-row-text">2019.11.17 일요일</div>
+        </div>
+      </div>
+    </div>
+    <div class="input-and-bot">
+      <div class="bot-menus">
+        <div id="entertainment" class="bot-menu">
+          <div class="text-menu">연애</div>
+        </div>
+        <div id="health" class="bot-menu">
+          <div class="text-menu">건강</div>
+        </div>
+        <div id="technology" class="bot-menu">
+          <div class="text-menu">기술</div>
+        </div>
+        <div id="sports" class="bot-menu">
+          <div class="text-menu">스포츠</div>
+        </div>
+      </div>
+      <!-- 채팅 입력 -->
+      <div class="input">
+        <div class="call-bot"></div>
+        <div class="close-bot"></div>
+        <textarea class="text-input"></textarea>
+        <div class="send">
+          <div class="send-symbol"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 햄버거 바 -->
+    <div class="hamburger-bar">
+      <div class="top-of-hamburger">
+        <div class="mine-icon"></div>
+        <div class="mine-name">기러기 아빠</div>
+        <div class="config"></div>
+        <div class="close-bamburger"></div>
+      </div>
+      <div class="number-chat-room">
+        <div class="text-number-chat-room">채팅방 인원</div>
+      </div>
+      <div class="others">
+        <div class="other-user">
+          <div class="other-user-icon"></div>
+          <div class="other-user-name">태영이 엄마</div>
+          <div class="other-user-time-and-area">미국 10:12</div>
+        </div>
+        <div class="other-user">
+          <div class="other-user-icon"></div>
+          <div class="other-user-name">아들 태영이</div>
+          <div class="other-user-time-and-area">미국 10:12</div>
+        </div>
+        <div class="other-user">
+          <div class="other-user-icon"></div>
+          <div class="other-user-name">막내딸 지영이</div>
+          <div class="other-user-time-and-area">미국 10:12</div>
+        </div>
+      </div>
+      <div class="hamburger-footer">
+        <div class="share-and-quit">
+          <div class="share"></div>
+          <div class="quit"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

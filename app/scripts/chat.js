@@ -1,3 +1,71 @@
+// 웹소켓
+const webSocket = () => {
+  if ('WebSocket' in window) {  
+    const roomId = 0; // 방 번호
+    let oSocket = new WebSocket(`ws://localhost:8080/chat/room/${roomId}`);
+  
+    // 메세지가 도착했을 때
+    oSocket.onmessage = (e) => { 
+      console.log("e.data: ", e.data);
+      console.log("메세지 타입: ", e.data.messageType);
+      const isTalk = (eventType) => {
+        return eventType === "TALK";
+      }
+      switch (e.data.messageType) {
+        case "TEXT":
+          // 채팅일 경우
+          if (isTalk(eventType)) {
+  
+          }
+          // 입장일 경우, eventType: ENTER
+          else {
+            const name = e.data.sender.name;
+            const date = new Date();
+            const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+            const day = week[date.getDay()];
+            const arrayDate = `${date}`.split(" ");
+            const years = arrayDate[3];
+            const month = arrayDate[1];
+            const days = arrayDate[2];
+            const enterUserForm = `<div class="background-entrance-phrase">
+                                    <div class="row-text">
+                                      <div class="first-row-text">
+                                        <div class="person">${name}</div>
+                                        <div class="entry-phrase">님이 입장하셨습니다</div>
+                                      </div>
+                                      <div class="second-row-text">${years}.${month}.${days} ${day}</div>
+                                    </div>
+                                  </div>`;
+            $(".row").append(enterUserForm);
+          }
+        case "IMAGE":
+          
+        case "NEWS":
+          
+        default:
+  
+      }
+    };
+  
+    // 연결이 되었을 때
+    oSocket.onopen = (e) => {
+      console.log("웹소켓이 연결되었습니다.");
+      
+      // 메세지 서버로 보내기
+      $(".send").click(() => {
+        const inputText = $(".text-input").val().replace("\n", "<br/>");
+        oSocket.send(`${inputText}`);
+      });
+    };
+  
+    // 연결을 종료했을 때
+    oSocket.onclose = (e) => {
+      console.log("웹소켓이 연결 해제되었습니다.");
+    };
+    oSocket.close();
+  }
+}
+
 // 햄버거 바 인터랙션
 const handleHamburgerBar = () => {
   $(".hamburger-open-btn").click(() => {
@@ -48,11 +116,14 @@ const handleBotMenu = () => {
     $(".call-bot").show();
     $(".close-bot").hide();
   }
+
   $(".bot-menus").hide();
   $(".close-bot").hide();
+
   $(".call-bot").click(() => {
     showBotMenu();
   })
+
   $(".close-bot").click(() => {
     hideBotMenu();
   })
@@ -92,7 +163,7 @@ const handleInputChatting = () => {
 const addChatting = () => {
   const chatContents = $(".row");
   $(".send").click(() => {
-    const inputText = $(".text-input").val();
+    const inputText = $(".text-input").val().replace("\n", "<br/>");
     const chatForm = `<div class="mine-chat-row">
                         <div class="time-and-balloon">
                           <div class="time">23:02</div>
