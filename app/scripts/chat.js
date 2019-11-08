@@ -1,8 +1,8 @@
 // 웹소켓
 const webSocket = () => {
   if ('WebSocket' in window) {  
-    const roomId = 0; // 방 번호
-    let oSocket = new WebSocket(`ws://localhost:8080/chat/room/${roomId}`);
+    const roomId = 1; // 방 번호
+    let oSocket = new WebSocket(`ws://localhost:8080/chat/rooms/${roomId}`);
   
     // 메세지가 도착했을 때
     oSocket.onmessage = (e) => { 
@@ -191,8 +191,9 @@ const addChatting = () => {
 
 // DOM 렌더링 완료된 후 실행
 $(() => {
-    handleHamburgerBar();
-    handleBotMenu();
-    handleInputChatting();
-    addChatting();
+  handleHamburgerBar();
+  handleBotMenu();
+  handleInputChatting();
+  addChatting();
+  webSocket();
 });

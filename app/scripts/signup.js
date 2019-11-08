@@ -202,27 +202,36 @@ function chatName(){
 }
 //채팅방 생성하기 
 function chatCreate(){
-  var chatName = document.getElementById("chatName").value;
-  var Params = '?name=' + chatName;
-  $.ajax({
-    headers: {"Authorization": 'Bearer '+
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTU3MzM4OTUzMywiaWF0IjoxNTczMTAxNTMzfQ.TmfVvUD2arLjSIOH4L5vQPIY-d5I0vUDanX8BWttGQUq0UQYRE3mGB0L0AnxAo4-xDucH4abFCZBnCFg4k5Thg",
-    'Access-Control-Allow-Origin': '*'},
-    url: "http://54.180.125.135/api/rooms"+Params,
-    type: 'POST',
-    data: {
-        name: chatName
-    },
-    success:function(data){
-      //var jsonObj = JSON.parse(data);
-      location.href="chat.html";
+  // var chatName = document.getElementById("chatName").value;
+  // var Params = '?name=' + chatName;
+  // $.ajax({
+  //   headers: {"Authorization": 'Bearer '+
+  //   "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTU3MzM4OTUzMywiaWF0IjoxNTczMTAxNTMzfQ.TmfVvUD2arLjSIOH4L5vQPIY-d5I0vUDanX8BWttGQUq0UQYRE3mGB0L0AnxAo4-xDucH4abFCZBnCFg4k5Thg",
+  //   'Access-Control-Allow-Origin': '*'},
+  //   url: "http://54.180.125.135/api/rooms"+Params,
+  //   type: 'POST',
+  //   data: {
+  //       name: chatName
+  //   },
+  //   success:function(data){
+  //     //var jsonObj = JSON.parse(data);
+  //     location.href="chat.html";
       
-    }, //success
-    error:function(xhr,status){
-      alert(xhr +":"+status);
-    }
-  });
- 
+  //   }, //success
+  //   error:function(xhr,status){
+  //     alert(xhr +":"+status);
+  //   }
+  // });
+  const nameOfRoom = "hi";
+  const token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTU3MzMwNTY2NSwiaWF0IjoxNTczMDE3NjY1fQ.pIugFRx7OO8SZ1GEyaNwKhbHSaHUbzpygorytwrhCVpmWIOcG8P3C_6samuwSBxYvfXRBbQbQGYTGlemzCxLRw";
+  const url = `http://54.180.125.135/api/rooms?name=${nameOfRoom}`;
+  const config = { headers: { 'Authorization': token, 'Content-Type': 'application/json'} };
+  const createRoom = axios.post(url, config);
+  createRoom.then((res) => {
+    console.log(res);
+  }).catch((err => {
+    console.log(err);
+  }));
 }
 
 //채팅방 이름 입력하면 버튼 색깔 활성화로 바뀌는 부분
