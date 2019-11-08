@@ -48,7 +48,7 @@ body {
     margin-bottom: 24px;
 }
 
-.oppent-chat-row {
+.opponent-chat-row {
     display: flex;
     margin-bottom: 6px;
     margin-top: 6px;
@@ -61,11 +61,11 @@ body {
     border-radius: 50%;
     background-color: white;
     flex: 0 0 auto;
+    margin-right: 8px;
 }
 
 .user-contents {
     height: fit-content;
-    margin-left: 8px;
 }
 
 .user-name {
@@ -195,6 +195,13 @@ body {
     display: flex;
     margin-bottom: 6px;
     margin-left: auto;
+}
+
+.opponent-time-and-balloon {
+    display: flex;
+    margin-bottom: 6px;
+    margin-right: auto;
+    flex-direction: row-reverse;
 }
 
 .input-and-bot {
