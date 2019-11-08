@@ -1,8 +1,9 @@
 // 웹소켓
 const webSocket = () => {
   if ('WebSocket' in window) {  
-    const roomId = 1; // 방 번호
-    let oSocket = new WebSocket(`ws://localhost:8080/chat/rooms/${roomId}`);
+    const roomId = 3; // 임시 방 번호
+    let oSocket = new WebSocket(`ws://localhost:8080/chat/room/${roomId}`);
+    
   
     // 메세지가 도착했을 때
     oSocket.onmessage = (e) => { 
@@ -43,7 +44,6 @@ const webSocket = () => {
         case "NEWS":
           
         default:
-  
       }
     };
   
@@ -86,15 +86,18 @@ const displayNewsByBot = (selectedId) => {
     const content = res.data.content;
     const imageUrl = res.data.imageUrl;
     const url = res.data.url;
-    const mineBotForm = `<div class="mine-speech-balloon">
-                          <div class="picture-and-headline">
-                            <div class="picture"></div>
-                            <div class="headline-and-date">
-                              <a href=${url} target="_blank" class="headline">${title}</a>
-                              <div class="name-of-company-and-date">${publishedAt}</div>
+    const mineBotForm = `<div class="balloon-and-time">
+                          <div class="time">12:00</div>
+                          <div class="mine-speech-balloon">
+                            <div class="picture-and-headline">
+                              <div class="picture"></div>
+                              <div class="headline-and-date">
+                                <a href=${url} target="_blank" class="headline">${title}</a>
+                                <div class="name-of-company-and-date">${publishedAt}</div>
+                              </div>
                             </div>
+                            <div class="contents">${content}</div>
                           </div>
-                          <div class="contents">${content}</div>
                         </div>`;
     $(".row").append(mineBotForm);
     $(".picture").last().css("background-image", `url(${imageUrl})`);
@@ -163,10 +166,17 @@ const handleInputChatting = () => {
 const addChatting = () => {
   const chatContents = $(".row");
   $(".send").click(() => {
+    const time = Date().split(" ")[4].slice(0, 5); // ex) 12:24
+    // 마지막으로 친 채팅의 시간과 그 전 채팅의 시간을 비교해서 같으면 위의 시간 삭제
+    // 12:00
+    // 12:00 일 경우 위 채팅의 시간 삭제
+    if ($(".time").last()[0].innerText === time) {
+      $(".time")[$(".time").length - 1].innerText = "";
+    }
     const inputText = $(".text-input").val().replace("\n", "<br/>");
     const chatForm = `<div class="mine-chat-row">
                         <div class="time-and-balloon">
-                          <div class="time">23:02</div>
+                          <div class="time">${time}</div>
                           <div class="mine-speech-balloon">
                             <div class="text">${inputText}</div>
                           </div>
