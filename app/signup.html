@@ -9,7 +9,8 @@
             <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
             <link rel="stylesheet" href="styles/index.css">
             <script src="scripts/signup.js"></script>
-        
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.js"></script>
     </head>
     <body>
         <form>
@@ -17,6 +18,8 @@
             <div class="titleName_signup">
                 <span class="title">회원가입</span>
             </div>
+            <div>
+            <div onclick="join()">
             <div class="center">
                 <input class="underline" type="text" id="nickname" onkeyup="check()" placeholder="닉네임" style="background:url('images/icon/icon_edit.png'); background-repeat:no-repeat;
                 background-position: 0% 50%; position: absolute; top:100px; left:27px;"><br>
@@ -35,8 +38,11 @@
             </div>
     
             <div class="center">
-            <input id="submit" class="btn3" type="submit" value="가입하기" onclick="join(); return false;">
-            </div>      
+                    <button id="submit" class="btn3" class="btn3">가입하기</button> 
+            <!--<input id="submit" class="btn3" type="submit" value="가입하기" onclick="join(); return false;">-->
+            </div> 
+            </div>   
+        </div>  
         </form>
     </body>
 </html>

@@ -8,32 +8,34 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="styles/index.css">
         <script src="scripts/signup.js"></script>
-      
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.js"></script>
     </head>
     <body>
         <script src="scripts/signup.js"></script>
        <!--<script src="https://cdnjs.cloudlare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>--> 
 
-        <form method="POST" action="">
-                <div class="titleName_signup">
-                        <span class="title">채팅방 설정</span>
-                </div>
+        
+        <div class="titleName_signup">
+                <span class="title">채팅방 설정</span>
+        </div>
+        <div onclick="chatCreate()">
             <div class="center">
-            <input class="underline" type="text" id="chatName" onkeyup="colorChange()" onclick="chatCreate()" placeholder="채팅방 이름을 입력해주세요."
-            style="background:url('images/icon/exit@1x.png'); background-repeat:no-repeat;
-               padding-bottom: 4.5%; padding-left:5%; background-position: 95% 50%; position: absolute; top:100px; left:27px;"><br>
-            <br>
+                <input class="underline" type="text" id="chatName" onkeyup="colorChange()" placeholder="채팅방 이름을 입력해주세요."
+                style="background:url('images/icon/exit@1x.png'); background-repeat:no-repeat;
+                padding-bottom: 4.5%; padding-left:5%; background-position: 95% 50%; position: absolute; top:100px; left:27px;"><br>
+                <br>
             
-            <input id="btn_create" class="btn3" type="submit" value="대화방 생성하기" onkeyup="colorChange()" onclick="chatCreate(); return false;"
-            style="position: relative; top:275px;">       
-            <input id="link_copy" class="btn4"  type="submit" value="링크복사하기" onkeyup="colorChange()" onclick="linkCopy(); return false;"> 
-           </div>
-          
-           <div id="link_notice" class="link_notice" onkeyup="colorChange()">
-            <img src="images/icon/share@3x.png" width="18.3px" height="18.3px"
-            style="position: relative; top:3px;">
-            초대할 사람에게 링크를 알려주세요! 
+                <button id="btn_create" class="btn3"onkeyup="colorChange()"
+                style="position: relative; top:275px;">대화방 생성하기</button>       
+                <button id="link_copy" class="btn4" onkeyup="colorChange()">링크복사하기</button>
             </div>
-        </form>
+          
+            <div id="link_notice" class="link_notice" onkeyup="colorChange()">
+                <img src="images/icon/share@3x.png" width="18.3px" height="18.3px"
+                style="position: relative; top:3px;">
+                초대할 사람에게 링크를 알려주세요!
+            </div>
+        </div>
     </body>
 </html>

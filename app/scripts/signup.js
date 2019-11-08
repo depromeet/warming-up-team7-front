@@ -58,50 +58,47 @@ function changecolor(){
 
 }
 
+
 //국가 선택 페이지로 이동 
 function join(){
-//회원가입 ajax통신
-var password = document.getElementById(password);
-var passwordCheck = document.getElementById(passwordCheck);
-location.href="nation.html"
-// $('#password').keyup(function(){
-//   $('#pwError').show('');
-// });
-// $(document).ready(function(){
-// $("#passwordCheck").keyup(function(){
-//   if($("password").val()!=$("passwordCheck").val()){
-//     $("#pwError").show;
-//     $("#submit").attr("disabled", "disabled");
-//   }else{
-//     $("#pwError").hide;
-//     $("#submit").removeAttr("disabled");
-//   }
 
-// });
-// });
-  
-  // $.ajax({
-  //   url: "/54.180.125.135/api/register",
-  //   type: 'POST',
-  //   data: {
-  //       username: username,
-  //       password: password
-  //   },
-  //   success:function(data){
-  //     //var jsonObj = JSON.parse(data);
-  //     location.href="nation.html";
-      
-  //   }, //success
-  //   error:function(xhr,status){
-  //     alert(xhr +":"+status);
-  //   }
-  // });
+  //회원가입 ajax통신
+  var username = "d";
+  var nickname = "d";
+  var password = "d";
+  var passwordCheck = "d";
+  // var username = document.getElementById(id);
+  // var nickname = document.getElementById(nickname);
+  // var password = document.getElementById(password);
+  // var passwordCheck = document.getElementById(passwordCheck);
+
+  //const axios = require('axios').default;
+  //event.preventDefault();
+  //const axios = require('axios');
+  // const dt = JSON.stringify({
+  //   "data":{"value":""}});
+  //const request = axios.post(url,{dt});
+
+  axios.post('http://54.180.125.135/api/register',{
+    "username": username,
+    "nickname": nickname,
+    "password": password,
+    "passwordCheck": passwordCheck
+  })
+  .then(function(response) { 
+    console.log(response);
+    location.href="nation.html";
+    alert("2");
+  })
+  .catch(function(error) {
+      console.log(error.response);
+  });
+
 }
 
 //국가 input클릭 시 리스트 보여주기  
 function nationClick(){
-  
-document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
 //국가 검색 기능 
@@ -202,27 +199,72 @@ function chatName(){
 }
 //채팅방 생성하기 
 function chatCreate(){
-  var chatName = document.getElementById("chatName").value;
+  var chatName = document.getElementById("chatName");
   var Params = '?name=' + chatName;
-  $.ajax({
-    headers: {"Authorization": 'Bearer '+
-    "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTU3MzM4OTUzMywiaWF0IjoxNTczMTAxNTMzfQ.TmfVvUD2arLjSIOH4L5vQPIY-d5I0vUDanX8BWttGQUq0UQYRE3mGB0L0AnxAo4-xDucH4abFCZBnCFg4k5Thg",
-    'Access-Control-Allow-Origin': '*'},
-    url: "http://54.180.125.135/api/rooms"+Params,
-    type: 'POST',
-    data: {
-        name: chatName
+  var url = 'http://54.180.125.135/api/rooms/'+Params;
+
+    axios.post(url,
+    {
+      "name": chatName
     },
-    success:function(data){
-      //var jsonObj = JSON.parse(data);
-      location.href="chat.html";
-      
-    }, //success
-    error:function(xhr,status){
-      alert(xhr +":"+status);
-    }
-  });
- 
+    {headers: {
+      'content-type': "application/json;charset=UTF-8",
+      "Authorization" : 'Bearer '+
+      "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTU3MzM4OTUzMywiaWF0IjoxNTczMTAxNTMzfQ.TmfVvUD2arLjSIOH4L5vQPIY-d5I0vUDanX8BWttGQUq0UQYRE3mGB0L0AnxAo4-xDucH4abFCZBnCFg4k5Thg",
+    
+    }})
+    .then(function(response) { 
+      //location.href="chat.html";
+          console.log(response);
+          alert("d");
+          // var btn_create = document.getElementById("btn_create");
+          // var link_copy = document.getElementById("link_copy");
+          // var chatname = document.getElementById("chatName");
+          // var link_notice = document.getElementById("link_notice");
+          
+          // link_notice.style.display="none"; 
+          // //btn_create.attributes("disabled", "disabled");
+          
+          // chatname.onkeyup = function(){
+          // btn_create.style.backgroundColor= "#ca8d4b";
+          // link_copy.style.color= "#c47161";
+          // link_copy.style.borderColor= "#c47161";
+          
+              
+          
+          // link_notice.style.display="block";
+          // //btn_create.removeAttribute("disabled");
+          //   }
+    })
+    .catch(function(error) {
+        console.log(error.response);
+    });
+  
+  // $.ajax({
+  //   headers: {
+  //   'content-type': "application/json;charset=UTF-8",
+  //   "Authorization": 'Bearer '+
+  //   "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0Iiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTU3MzM4OTUzMywiaWF0IjoxNTczMTAxNTMzfQ.TmfVvUD2arLjSIOH4L5vQPIY-d5I0vUDanX8BWttGQUq0UQYRE3mGB0L0AnxAo4-xDucH4abFCZBnCFg4k5Thg",
+  //   },
+
+  //   url: url,
+  //   type: 'POST',
+  //   data: {
+  //       name: chatName
+  //   },
+  //   success:function(data){
+  //     //var jsonObj = JSON.parse(data);
+  //     location.href="chat.html";
+  //     console.log(data);
+  //     alert("d");
+  //   }, //success
+  //   error:function(xhr,status){
+  //     alert(xhr +":"+status);
+  //   }
+  // });
+  
+
+  
 }
 
 //채팅방 이름 입력하면 버튼 색깔 활성화로 바뀌는 부분
@@ -257,6 +299,23 @@ function linkCopy(){
     alert("성공");
   });
 }
+
 function LoginComplete(){
+  var username = document.getElementById("id");
+  var password = document.getElementById("password");
+  
+  axios.post('http://54.180.125.135/api/login',{
+  "username": username,
+  "password": password,
+})
+.then(function(response) { 
+  console.log(response);
   location.href="loginComplete.html";
+  alert("2");
+})
+.catch(function(error) {
+    console.log(error.response);
+});
+  
+  
 }
