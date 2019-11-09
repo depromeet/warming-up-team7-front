@@ -19,14 +19,14 @@
         <div class="titleName_signup">
                 <span class="title">채팅방 설정</span>
         </div>
-        <div onclick="chatCreate()">
+        <div>
             <div class="center">
                 <input class="underline" type="text" id="chatName" onkeyup="colorChange()" placeholder="채팅방 이름을 입력해주세요."
                 style="background:url('images/icon/exit@1x.png'); background-repeat:no-repeat;
                 padding-bottom: 4.5%; padding-left:5%; background-position: 95% 50%; position: absolute; top:100px; left:27px;"><br>
                 <br>
             
-                <button id="btn_create" class="btn3"onkeyup="colorChange()"
+                <button id="btn_create" class="btn3"onkeyup="colorChange()" onclick="chatCreate()"
                 style="position: relative; top:275px;">대화방 생성하기</button>       
                 <button id="link_copy" class="btn4" onkeyup="colorChange()">링크복사하기</button>
             </div>

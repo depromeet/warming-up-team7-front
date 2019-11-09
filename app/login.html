@@ -17,8 +17,11 @@
             <div class="titleName_signup">
                 <span class="title">로그인</span>
             </div>
-            <div onclick="LoginComplete()">
+            <div>
                 <div class="center">
+                    <div id="topnavigation">
+                            <div id="text">아이디 또는 비밀번호가 일치하지 않습니다.</div>
+                    </div>
                     <input class="underline" type="text" id="id" placeholder="아이디" style="background:url('images/icon/icon_id.png'); background-repeat:no-repeat;
                     background-position: 0% 55%; position: relative; top:60px;"><br>
                     <input class="underline" type="password" id="password" placeholder="비밀번호" style="background:url('images/icon/icon_password.png'); background-repeat:no-repeat;
@@ -30,7 +33,7 @@
                         로그인 상태 유지하기
                     </div>
                     
-                    <button class="btn3" style="position: relative; top:220px;">로그인</button>
+                    <button onclick="LoginComplete()" class="btn3" style="position: relative; top:220px;">로그인</button>
                     
                 </div>
           
