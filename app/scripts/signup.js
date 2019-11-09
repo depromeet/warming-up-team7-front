@@ -101,7 +101,7 @@ function join() {
           //   "data":{"value":""}});
           //const request = axios.post(url,{dt});
           $(document).ready(function () {
-            axios.post('http://54.180.125.135/api/register', {
+            axios.post('http://54.180.125.135/api/register/one', {
               "username": str_username,
               "nickname": str_nickname,
               "password": str_password,
@@ -111,18 +111,19 @@ function join() {
               .then(function (response) {
 
                 if ((passwordCheck.value == null)) {
-               
+                  
                   document.getElementById("submit").style.backgroundColor = "#424242";
                   document.getElementById("submit").onclick = function () {
                     
                   }
-                } else
+                } else{
+                  localStorage.setItem("username",str_username);
                   document.getElementById("submit").style.backgroundColor = "#ca8d4b";
                   location.href = "nation.html";
-                  
+                }
               })
               .catch(function (error) {
-                console.log(error.response);
+                console.log(error);
               });
           });
         }
@@ -182,10 +183,12 @@ function join() {
           var country = document.getElementById("myDropdown");
           var str_country = country.value;
          
-          axios.post('http://54.180.125.135/api/register', {
+          axios.post('http://54.180.125.135/api/register/two', {
+            "username": localStorage.getItem("username"),
             "country": str_country
           })
             .then(function (response) {
+           
              location.href = "profile.html";
               
             })
@@ -228,7 +231,8 @@ function join() {
            
           image_1.onclick = function () {
             select.src = image_1.src;
-            select.value = image_1.value;
+            profilenum = "1";
+            chatName(profilenum);
           }
           image_2.onclick = function () {
             select.src = image_2.src;
@@ -272,14 +276,23 @@ function join() {
             
           }
         }
-        //채팅방 이름 입력하기 
+        //채팅방 이름 입력하기로 넘어가는 버튼
         function chatName(profile) {
           const a = profile;
           console.log(a);
-        
-          axios.post('http://54.180.125.135/api/register', {
-            "ImagNumber": a
-          })
+          
+          axios.post('http://54.180.125.135/api/register/three', {
+            "username": localStorage.getItem("username"),
+            "profileImageNumber": 5
+          },
+          {
+            headers: {
+          
+              "Authorization": "Bearer "+localStorage.getItem("token")
+
+            }
+          }
+          )
             .then(function (response) {
               location.href = "chat_set.html";
               console.log(a);
@@ -290,28 +303,50 @@ function join() {
          
 
         }
+        function linkCopy(url) {
+          //링크 복사하기
+          //링크 복사성공하면 복사 완료 버튼으로 바뀜
+          document.querySelector(".btn4").addEventListener("click", function(){
+            var tempElem = document.createElement('textarea');
+            tempElem.value = url;  
+            document.body.appendChild(tempElem);
           
+            tempElem.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempElem);
+          // var copyurl = url;
+          // document.execCommand(copyurl,'Copy');
+          
+          
+        });
+      }
+       
         
         //채팅방 생성하기 
         function chatCreate() {
           var chatName = "1";
           var Params = '?name=' + chatName;
           //var url = 'http://54.180.125.135/api/rooms' + Params;
-          var url = 'http://54.180.125.135/api/rooms' + Params;
+          var url = 'http://54.180.125.135/api/rooms' ;
           
           axios.post(url,
             {
+              "username": localStorage.getItem("username"),
               "name": chatName
             },
             {
               headers: {
-                'content-type': "application/json;charset=UTF-8",
+            
                 "Authorization": "Bearer "+localStorage.getItem("token")
 
               }
             })
             .then(function (response) {
-              //location.href="chat.html";
+              location.href="chat.html";
+              var chaturl = Request.getHearder("location");
+              console.log(chaturl);
+              linkCopy(chaturl);
+              
               console.log(response);
               alert("d");
               // var btn_create = document.getElementById("btn_create");
@@ -387,16 +422,7 @@ function join() {
           }
         }
 
-        function linkCopy() {
-          //링크 복사하기
-          //링크 복사성공하면 복사 완료 버튼으로 바뀜
-
-          const copyLink = new ClipboardJS("#btn4");
-          copyLink.on("success", function () {
-            alert("성공");
-          });
-        }
-
+       
         function LoginComplete() {
           var username = document.getElementById("id");
           var password = document.getElementById("password");
@@ -451,8 +477,7 @@ function chatEnter(){
     .then(function (response) {
       location.href="chat.html";
       console.log(response);
-      alert("d");
-     
+      
     })
     .catch(function (error) {
       console.log(error);
