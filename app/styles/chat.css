@@ -90,7 +90,9 @@ body {
 }
 
 .balloon-and-time {
+    margin-left: auto;
     display: flex;
+    width: fit-content;
 }
 
 .opponent-speech-balloon {
@@ -125,6 +127,7 @@ body {
     letter-spacing: 0.92px;
     color: #222222;
     overflow: hidden;
+    text-decoration:none;
 }
 
 .headline-and-date {
@@ -301,7 +304,7 @@ body {
     left: 1vw;
     position: relative;
     top: 0.86vh;
-    width: 5.86vw;
+    width: 2.5vh;
     height: 2.21vh;
 }
 

@@ -2,67 +2,84 @@
 const webSocket = () => {
   if ('WebSocket' in window) {  
     const roomId = 3; // 임시 방 번호
-    let oSocket = new WebSocket(`ws://localhost:8080/chat/room/${roomId}`);
-    
-  
-    // 메세지가 도착했을 때
-    oSocket.onmessage = (e) => { 
-      console.log("e.data: ", e.data);
-      console.log("메세지 타입: ", e.data.messageType);
-      const isTalk = (eventType) => {
-        return eventType === "TALK";
+    const authToken = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTU3MzQ4NTA2OCwiaWF0IjoxNTczMTk3MDY4fQ.SP87OkjUO-D5CeCQ1D0I6il1VhENRj4Oy9zYlF6epVcp6WGoQTc9ZR-Qm7y3BH22kPmHZx5iaRLwItbZPI-ePQ";
+    // document.cookie = 'Authorization=' + authToken + '; path=/';
+    // let oSocket = new WebSocket(`ws://localhost:8080/chat/room/${roomId}`);
+
+    let socket = io(`http://localhost:8080/chat/room/${roomId}`, {
+      transports: ['websocket'], 
+      extraHeaders: {
+        Authorization: authToken
       }
-      switch (e.data.messageType) {
-        case "TEXT":
-          // 채팅일 경우
-          if (isTalk(eventType)) {
+    });
+
+    socket.emit('hi!');
+
+    socket.on('connect', function(socket){
+      console.log('a user connected');
+    });
+    socket.on('message', (socket) => {
+      console.log(socket);
+    })
+
+    // // 메세지가 도착했을 때
+    // oSocket.onmessage = (e) => {
+    //   console.log("e.data: ", e.data);
+    //   console.log("메세지 타입: ", e.data.messageType);
+    //   const isTalk = (eventType) => {
+    //     return eventType === "TALK";
+    //   }
+    //   switch (e.data.messageType) {
+    //     case "TEXT":
+    //       // 채팅일 경우
+    //       if (isTalk(eventType)) {
   
-          }
-          // 입장일 경우, eventType: ENTER
-          else {
-            const name = e.data.sender.name;
-            const date = new Date();
-            const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
-            const day = week[date.getDay()];
-            const arrayDate = `${date}`.split(" ");
-            const years = arrayDate[3];
-            const month = arrayDate[1];
-            const days = arrayDate[2];
-            const enterUserForm = `<div class="background-entrance-phrase">
-                                    <div class="row-text">
-                                      <div class="first-row-text">
-                                        <div class="person">${name}</div>
-                                        <div class="entry-phrase">님이 입장하셨습니다</div>
-                                      </div>
-                                      <div class="second-row-text">${years}.${month}.${days} ${day}</div>
-                                    </div>
-                                  </div>`;
-            $(".row").append(enterUserForm);
-          }
-        case "IMAGE":
+    //       }
+    //       // 입장일 경우, eventType: ENTER
+    //       else {
+    //         const name = e.data.sender.name;
+    //         const date = new Date();
+    //         const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+    //         const day = week[date.getDay()];
+    //         const arrayDate = `${date}`.split(" ");
+    //         const years = arrayDate[3];
+    //         const month = arrayDate[1];
+    //         const days = arrayDate[2];
+    //         const enterUserForm = `<div class="background-entrance-phrase">
+    //                                 <div class="row-text">
+    //                                   <div class="first-row-text">
+    //                                     <div class="person">${name}</div>
+    //                                     <div class="entry-phrase">님이 입장하셨습니다</div>
+    //                                   </div>
+    //                                   <div class="second-row-text">${years}.${month}.${days} ${day}</div>
+    //                                 </div>
+    //                               </div>`;
+    //         $(".row").append(enterUserForm);
+    //       }
+    //     case "IMAGE":
           
-        case "NEWS":
+    //     case "NEWS":
           
-        default:
-      }
-    };
+    //     default:
+    //   }
+    // };
   
-    // 연결이 되었을 때
-    oSocket.onopen = (e) => {
-      console.log("웹소켓이 연결되었습니다.");
+    // // 연결이 되었을 때
+    // oSocket.onopen = (e) => {
+    //   console.log("웹소켓이 연결되었습니다.");
       
-      // 메세지 서버로 보내기
-      $(".send").click(() => {
-        const inputText = $(".text-input").val().replace("\n", "<br/>");
-        oSocket.send(`${inputText}`);
-      });
-    };
+    //   // 메세지 서버로 보내기
+    //   $(".send").click(() => {
+    //     const inputText = $(".text-input").val().replace("\n", "<br/>");
+    //     oSocket.send(`${inputText}`);
+    //   });
+    // };
   
-    // 연결을 종료했을 때
-    oSocket.onclose = (e) => {
-      console.log("웹소켓이 연결 해제되었습니다.");
-    };
-    oSocket.close();
+    // // 연결을 종료했을 때
+    // oSocket.onclose = (e) => {
+    //   console.log("웹소켓이 연결 해제되었습니다.");
+    // };
+    // oSocket.close();
   }
 }
 
@@ -81,13 +98,21 @@ const displayNewsByBot = (selectedId) => {
   const url = `http://54.180.125.135/api/test/news?country=kr&category=${selectedId}`;
   const getNews = axios.get(url);
   getNews.then(res => {
+    console.log(res);
     const title = res.data.title;
     const publishedAt = res.data.publishedAt;
     const content = res.data.content;
     const imageUrl = res.data.imageUrl;
     const url = res.data.url;
+    const time = Date().split(" ")[4].slice(0, 5); // ex) 12:24
+    // 마지막으로 친 채팅의 시간과 그 전 채팅의 시간을 비교해서 같으면 위의 시간 삭제
+    // 12:00
+    // 12:00 일 경우 위 채팅의 시간 삭제
+    if ($(".time").last()[0].innerText === time) {
+      $(".time")[$(".time").length - 1].innerText = "";
+    }
     const mineBotForm = `<div class="balloon-and-time">
-                          <div class="time">12:00</div>
+                          <div class="time">${time}</div>
                           <div class="mine-speech-balloon">
                             <div class="picture-and-headline">
                               <div class="picture"></div>
@@ -206,4 +231,16 @@ $(() => {
   handleInputChatting();
   addChatting();
   webSocket();
+
+  // axios.post('http://54.180.125.135/api/login', {
+  //   "username": "yongseong",
+  //   "password": "yongseong"
+  // }).then(function (response) {
+  //     console.log(response)
+  //     localStorage.setItem("token",token);
+  //     // location.href = "loginComplete.html";
+  //   })
+  //   .catch(function (err) {
+  //     console.log(err)
+  //   });
 });
