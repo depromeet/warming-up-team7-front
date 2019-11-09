@@ -21,8 +21,9 @@
     </div>
     <!-- 채팅 내용 -->
     <div class="row">
+      <div class="time" style="display: none"></div>
       <!-- 상대 채팅 -->
-      <div class="opponent-chat">
+      <!-- <div class="opponent-chat">
         <div class="opponent-chat-row">
           <div class="user-icon"></div>
           <div class="user-contents">
@@ -49,10 +50,6 @@
         <div class="opponent-chat-row">
           <div class="user-icon"></div>
           <div class="user-contents">
-            <!-- <div class="name-and-topic">
-              <div class="user-name">대화가 필요해</div>
-              <div class="topic">정치</div>
-            </div> -->
             <div class="balloon-and-time">
               <div class="opponent-speech-balloon">
                 <div class="picture-and-headline">
@@ -70,26 +67,26 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- 내 채팅 -->
-      <div class="mine-chat">
-        <div class="mine-chat-row">
+      <!-- <div class="mine-chat"> -->
+        <!-- <div class="mine-chat-row">
           <div class="time-and-balloon">
             <div class="time">23:02</div>
             <div class="mine-speech-balloon">
               <div class="text">안그래도 여기도 지진때문에</div>
             </div>
           </div>
-        </div>
-        <div class="mine-chat-row">
+        </div> -->
+        <!-- <div class="mine-chat-row">
           <div class="time-and-balloon">
             <div class="time">23:02</div>
             <div class="mine-speech-balloon">
               <div class="text">안그래도 여기도 지진때문에</div>
             </div>
           </div>
-        </div>
-        <div class="mine-speech-balloon">
+        </div> -->
+        <!-- <div class="mine-speech-balloon">
           <div class="picture-and-headline">
             <div class="picture"></div>
             <div class="headline-and-date">
@@ -100,37 +97,10 @@
             </div>
           </div>
           <div class="contents">최근 방글라데시에 큰 재난이 발생한 뒤 이로 인해 피해를 겪었던 국민들을 위한 재난 안내 대피 프로토콜이 발동되어…</div>
-        </div>
-      </div>
-      <!-- 상대 채팅 -->
-      <div class="opponent-chat">
-        <div class="opponent-chat-row">
-          <div class="user-icon"></div>
-          <div class="user-contents">
-            <div class="name-and-topic">
-              <div class="user-name">대화가 필요해</div>
-              <div class="topic">정치</div>
-            </div>
-            <div class="balloon-and-time">
-              <div class="opponent-speech-balloon">
-                <div class="picture-and-headline">
-                  <div class="picture"></div>
-                  <div class="headline-and-date">
-                      <a href="http://www.naver.com" target="_blank" class="headline">[정치]방글라데시, 
-                        지진재난 프로토콜
-                        완성…피해주민…</a>
-                    <div class="name-of-company-and-date">한국뉴스 2019.03.04</div>
-                  </div>
-                </div>
-                <div class="contents">최근 방글라데시에 큰 재난이 발생한 뒤 이로 인해 피해를 겪었던 국민들을 위한 재난 안내 대피 프로토콜이 발동되어…</div>
-              </div>
-              <div class="time">23:02</div>
-            </div>
-          </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
       <!-- 입장 문구 -->
-      <div class="background-entrance-phrase">
+      <!-- <div class="background-entrance-phrase">
         <div class="row-text">
           <div class="first-row-text">
             <div class="person">막내딸 지영이</div>
@@ -138,23 +108,7 @@
           </div>
           <div class="second-row-text">2019.11.17 일요일</div>
         </div>
-      </div>
-      <div class="mine-chat-row">
-        <div class="time-and-balloon">
-          <div class="time">23:02</div>
-          <div class="mine-speech-balloon">
-            <div class="weather-icon"></div>
-            <div class="weather-contents">안그래도 여기도 지진때문에
-              <div class="first-column">
-                <div class="country">오스트리아</div>
-                <div class="of">의</div>
-              </div>
-              <div class="of">현재 날씨는</div>
-              <div class="weather-info">매우 흐림입니다</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </div> -->
     </div>
     <div class="input-and-bot">
       <div class="bot-menus">
@@ -197,17 +151,17 @@
       </div>
       <div class="others">
         <div class="other-user">
-          <div class="other-user-icon"></div>
+          <div id="mother" class="other-user-icon"></div>
           <div class="other-user-name">태영이 엄마</div>
           <div class="other-user-time-and-area">미국 10:12</div>
         </div>
         <div class="other-user">
-          <div class="other-user-icon"></div>
+          <div id="son" class="other-user-icon"></div>
           <div class="other-user-name">아들 태영이</div>
           <div class="other-user-time-and-area">미국 10:12</div>
         </div>
         <div class="other-user">
-          <div class="other-user-icon"></div>
+          <div id="daughter" class="other-user-icon"></div>
           <div class="other-user-name">막내딸 지영이</div>
           <div class="other-user-time-and-area">미국 10:12</div>
         </div>

@@ -106,6 +106,25 @@ body {
     padding: 8px;
 }
 
+.top-right {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 3px;
+}
+
+.top-bottom-right {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.bottom-right {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 3px;
+}
+
 .picture-and-headline {
     display: flex;
 }
@@ -160,11 +179,23 @@ body {
 
 .mine-chat-row {
     display: flex;
+    height: fit-content;
 }
 
 .mine-chat {
     height: fit-content;
     margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+.balloon {
+    display: flex;
+    flex-direction: column;
+}
+
+.balloon2 {
+    display: flex;
+    flex-direction: row;
 }
 
 .mine-speech-balloon {
@@ -173,13 +204,13 @@ body {
     height: fit-content;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     background-color: #f0ead6;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     padding: 8px;
     margin-left: auto;
     margin-bottom: 6px;
-    justify-content: flex-end;
 }
 
 .text {
@@ -192,12 +223,11 @@ body {
     color: #333333;
     margin: 0 auto;
     align-self: center;
-    text-align: center;
+    text-align: left;
 }
 
 .time-and-balloon {
     display: flex;
-    margin-bottom: 6px;
     margin-left: auto;
 }
 
@@ -331,7 +361,20 @@ body {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background-color: orange;
+    background-image: url(http://we-need-a-conversation.s3-website.ap-northeast-2.amazonaws.com/images/profile/8.png);
+    background-size: cover;
+}
+
+#daughter {
+    background-image: url(http://we-need-a-conversation.s3-website.ap-northeast-2.amazonaws.com/images/profile/2.png);
+}
+
+#mother {
+    background-image: url(http://we-need-a-conversation.s3-website.ap-northeast-2.amazonaws.com/images/profile/3.png);
+}
+
+#son {
+    background-image: url(http://we-need-a-conversation.s3-website.ap-northeast-2.amazonaws.com/images/profile/5.png);
 }
 
 .mine-name {
@@ -384,7 +427,7 @@ body {
 }
 
 .other-user-icon {
-    background-color: orange;
+    background-size: cover;
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -476,4 +519,51 @@ body {
     letter-spacing: 0.43px;
     text-align: center;
     color: #909090;
+}
+
+/* 봇 날씨 호출 */
+.weather-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    margin-right: 8px;
+    background-size: cover;
+}
+
+.first-column {
+    display: flex;
+}
+
+.mine-speech-balloon2 {
+    width: fit-content;
+    max-width: 250px;
+    min-height: 24px;
+    height: fit-content;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background-color: #f0ead6;
+    border-radius: 20px;
+    display: flex;
+    padding: 8px;
+    margin-left: auto;
+    margin-bottom: 6px;
+    justify-content: flex-end;
+}
+
+.country {
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.81px;
+}
+
+.of {
+    color: #666666;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.81px;
+}
+
+.weather-info {
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.92px;
 }
