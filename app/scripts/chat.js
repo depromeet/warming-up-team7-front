@@ -13,14 +13,14 @@ const webSocket = () => {
       }
     });
 
-    socket.emit('hi!');
-
-    socket.on('connect', function(socket){
-      console.log('a user connected');
-    });
-    socket.on('message', (socket) => {
+    socket.emit('TALK', "hi");
+    socket.on('TALK', socket => {
       console.log(socket);
     })
+    socket.on('connect', socket => {
+      console.log(socket);
+    })
+
 
     // // 메세지가 도착했을 때
     // oSocket.onmessage = (e) => {
@@ -93,14 +93,59 @@ const handleHamburgerBar = () => {
   })
 }
 
+// 일단 서울 날씨만 가져옴
+const displayWeatherByBot = () => {
+  const url = `http://54.180.125.135/api/test/weather?city=seoul`;
+  const getWeather = axios.get(url);
+  getWeather.then(res => {
+    const cityName = res.data.name;
+    const description = res.data.description;
+    const iconUrl = res.data.iconUrl;
+    const time = Date().split(" ")[4].slice(0, 5); // ex) 12:24
+    // 마지막으로 친 채팅의 시간과 그 전 채팅의 시간을 비교해서 같으면 위의 시간 삭제
+    // 12:00 (첫 번째 말풍선)
+    // 12:00 (두 번째 말풍선) 일 경우 첫 번째 말풍선의 시간 삭제
+    if ($(".time").last()[0].innerText === time) {
+      $(".time")[$(".time").length - 1].innerText = "";
+    }
+    const weatherForm = `<div class="mine-chat-row">
+                          <div class="time-and-balloon">
+                            <div class="time">${time}</div>
+                            <div class="mine-speech-balloon balloon2">
+                              <div class="weather-icon"></div>
+                              <div class="weather-contents">
+                                <div class="first-column">
+                                  <div class="country">${cityName}</div>
+                                  <div class="of">의</div>
+                                </div>
+                                <div class="of">현재 날씨는</div>
+                                <div class="weather-info">${description}입니다</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>`
+    if ($(".row").children().last()[0].className !== "mine-chat") {
+      $(".row").append(`<div class="mine-chat">${weatherForm}</div>`);
+    }
+    else {
+      $(".row").children().last().append(weatherForm);
+    }
+    $(".weather-icon").last().css("background-image", `url(${iconUrl})`);
+    // 스크롤 맨 아래로 이동
+    $(".row").scrollTop($(".row")[0].scrollHeight);
+    fluidChatBalloon();
+  }).catch(err => {
+    console.log("Error: ", err)
+  })
+}
+
 // 봇 호출하여 뉴스 표시
 const displayNewsByBot = (selectedId) => {
   const url = `http://54.180.125.135/api/test/news?country=kr&category=${selectedId}`;
   const getNews = axios.get(url);
   getNews.then(res => {
-    console.log(res);
     const title = res.data.title;
-    const publishedAt = res.data.publishedAt;
+    const publishedAt = res.data.publishedAt.slice(0, 10).replace(/-/gi, '.'); // 2010.10.10
     const content = res.data.content;
     const imageUrl = res.data.imageUrl;
     const url = res.data.url;
@@ -113,7 +158,7 @@ const displayNewsByBot = (selectedId) => {
     }
     const mineBotForm = `<div class="balloon-and-time">
                           <div class="time">${time}</div>
-                          <div class="mine-speech-balloon">
+                          <div class="mine-speech-balloon balloon">
                             <div class="picture-and-headline">
                               <div class="picture"></div>
                               <div class="headline-and-date">
@@ -124,10 +169,17 @@ const displayNewsByBot = (selectedId) => {
                             <div class="contents">${content}</div>
                           </div>
                         </div>`;
-    $(".row").append(mineBotForm);
+    if ($(".row").children().last()[0].className !== "mine-chat") {
+      $(".row").append(`<div class="mine-chat">${mineBotForm}</div>`);
+    }
+    else {
+      $(".row").children().last().append(mineBotForm);
+    }
+    // $(".row").append(mineBotForm);
     $(".picture").last().css("background-image", `url(${imageUrl})`);
     // 스크롤 맨 아래로 이동
     $(".row").scrollTop($(".row")[0].scrollHeight);
+    fluidChatBalloon();
   })
   .catch(err => console.log(err));
 }
@@ -170,7 +222,12 @@ const handleBotMenu = () => {
         "border": "solid 1px white"
       })
     }, 500);
-    displayNewsByBot(selectedId);
+    if (selectedId !== "weather") {
+      displayNewsByBot(selectedId);
+    }
+    else {
+      displayWeatherByBot();
+    }
   })
 }
 
@@ -187,40 +244,76 @@ const handleInputChatting = () => {
   })
 }
 
+const fluidChatBalloon = () => {
+  $(".mine-speech-balloon").css({
+    "border-bottom-right-radius": "3px", 
+    "border-top-right-radius": "3px"
+  })
+  $(".mine-speech-balloon").first().css({
+    "border-top-right-radius": "20px",
+    "border-bottom-right-radius": "3px"
+  });
+  $(".mine-speech-balloon").last().css({
+    "border-top-right-radius": "3px",
+    "border-bottom-right-radius": "20px"
+  });
+}
+
 // 채팅 입력
 const addChatting = () => {
   const chatContents = $(".row");
   $(".send").click(() => {
     const time = Date().split(" ")[4].slice(0, 5); // ex) 12:24
     // 마지막으로 친 채팅의 시간과 그 전 채팅의 시간을 비교해서 같으면 위의 시간 삭제
-    // 12:00
-    // 12:00 일 경우 위 채팅의 시간 삭제
+    // 12:00 (첫 번째 말풍선)
+    // 12:00 (두 번째 말풍선) 일 경우 첫 번째 말풍선의 시간 삭제
     if ($(".time").last()[0].innerText === time) {
       $(".time")[$(".time").length - 1].innerText = "";
     }
-    const inputText = $(".text-input").val().replace("\n", "<br/>");
+    const inputText = $(".text-input").val().replace(/\n/gi, "<br/>");
     const chatForm = `<div class="mine-chat-row">
                         <div class="time-and-balloon">
                           <div class="time">${time}</div>
-                          <div class="mine-speech-balloon">
+                          <div id="top-right" class="mine-speech-balloon balloon">
                             <div class="text">${inputText}</div>
                           </div>
                         </div>
                       </div>`;
-    // 최하단에 위치한 채팅이 내 채팅일 때 && 채팅내용이 있을 때
+    // 최하단에 위치한 채팅이 내 채팅이 아닐 때 && 채팅내용이 있을 때
     if ($(".row").children().last()[0].className !== "mine-chat" && inputText.length) {
-      chatContents.append(`<div class="mine-chat">
-                            ${chatForm}
-                          </div>`);
+      chatContents.append(`<div class="mine-chat">${chatForm}</div>`);
     }
     else if (inputText.length) {
       $(".row").children().last().append(chatForm);
+      fluidChatBalloon();
     }
     // 입력창 초기화
     $(".text-input").val("");
     $(".send").css("background-color", "#c8c8c8");
     // 스크롤 맨 아래로 이동
     $(".row").scrollTop($(".row")[0].scrollHeight);
+    // <br/> 갯수에 따라 말풍선 크기 변경
+    const textHeight = $(".text").last().children().length * 20 + 5; // </br> </br> => 2 * 20 + 5
+    $(".mine-speech-balloon").last().css("height", `${textHeight}`);
+  })
+}
+
+// 채팅방 나가기 버튼 누르면 최초 화면으로 이동
+const movePage = () => {
+  $(".quit").click(() => {
+    location.href = "index.html";
+  })
+}
+
+// 공유 버튼 누르면 복사되는 기능
+const copyUrl = () => {
+  $(".share").click(() => {
+    const $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val(location.href).select();
+    document.execCommand("copy");
+    $temp.remove();
+    alert("주소가 복사되었습니다.");
   })
 }
 
@@ -231,16 +324,6 @@ $(() => {
   handleInputChatting();
   addChatting();
   webSocket();
-
-  // axios.post('http://54.180.125.135/api/login', {
-  //   "username": "yongseong",
-  //   "password": "yongseong"
-  // }).then(function (response) {
-  //     console.log(response)
-  //     localStorage.setItem("token",token);
-  //     // location.href = "loginComplete.html";
-  //   })
-  //   .catch(function (err) {
-  //     console.log(err)
-  //   });
+  movePage();
+  copyUrl();
 });
