@@ -47,7 +47,7 @@
     "js-yaml": "^3.13.1",
     "lodash.merge": "^4.6.2",
     "lodash.template": "^4.5.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "tunnel-agent": "^0.6.0",
     "ws": "^7.2.0"
   }
